@@ -6,7 +6,7 @@ import webbrowser
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[0].id)       # 0 represents the male voice, if you need female voice means just type 1 
 
 def speak(audio):
     engine.say(audio)
@@ -18,17 +18,14 @@ while True:
     try:
         r=sr.Recognizer()
         with sr.Microphone() as source:
-            playsound.playsound("D:\\Python\\ironmanjarvis\\Music\\start.mp3")
+            playsound.playsound("D:\\Python\\ironmanjarvis\\Music\\start.mp3")      # This is just a sound to verify the mic is on
             print("Listening...")
-            #r.pause_threshold=1
-            #r.adjust_for_ambient_noise(source)
-            #audio=r.listen(source)
-            import time
-            time.sleep(2)
-            playsound.playsound("D:\\Python\\ironmanjarvis\\Music\\stop.mp3")
+            r.pause_threshold=1
+            r.adjust_for_ambient_noise(source)
+            audio=r.listen(source)
+            playsound.playsound("D:\\Python\\ironmanjarvis\\Music\\stop.mp3")        # This is just a sound to verify the mic is off
             print("Recognizing...")
-            #search=r.recognize_google(audio,language='en-in')
-            search="about Elon Musk"
+            search=r.recognize_google(audio,language='en-in')
             print("user said : ",end=" ")
             print(search)
         speak("searching,  please wait")
@@ -41,5 +38,3 @@ while True:
     except Exception as e:
         print(e)
         speak("say that again please")
-
-    
