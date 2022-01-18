@@ -27,7 +27,6 @@ while True:
             print("Recognizing...")
             search=r.recognize_google(audio,language='en-in')
             print("user said : ",end=" ")
-            print(search)
         speak("searching,  please wait")
         results=wikipedia.summary(search,sentences=2)
         speak("according to wikipedia")
