@@ -17,4 +17,4 @@ commands to download module:
   - pip install playsound
   - pip install SpeechRecognition
   
-For output verification please visit the Instagram page: https://www.instagram.com/python_projects_/
+For output verification please visit the Instagram page: https://www.instagram.com/hack_smashes/
